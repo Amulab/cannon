@@ -1,3 +1,5 @@
+[![asciicast](https://asciinema.org/a/MHAk9oxlbfQYtLeUnCxnP34Bn.svg)](https://asciinema.org/a/MHAk9oxlbfQYtLeUnCxnP34Bn)
+
 帮助
 ```text
 usage: main.py [-h] [-ts] [-debug] [-dc-ip ip address] [-target-ip ip address]
