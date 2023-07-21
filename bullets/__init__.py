@@ -69,14 +69,14 @@ class Cannon:
                     args = bullet_generator._vul_args
                     vals = [bullet[arg] for arg in args]
                     print('-' * 50)
-                    logging.info(f' shooting [{self._target.target_ip}]{bullet_generator._class.__name__}(' + ', '.join(
+                    logging.info(f'shooting [{self._target.target_ip}]{bullet_generator._class.__name__}(' + ', '.join(
                         [f'{k}={v[:-1]}' for k, v in zip(args, vals)]) + ')')
                     self._dce.request(bullet)
                 except Exception as e:
                     if "ERROR_BAD_NETPATH" in str(e):
-                        logging.info(f'[+][[_shoot] target hit! please check smb server.')
+                        logging.info(f'\x1b[31;20m[------------->] target hit! please check smb server.\x1b[0m')
                     elif "STATUS_CONNECTION_DISCONNECTED" in str(e):
-                        logging.info(f'[+][_shoot] target hit! please check smb server.')
+                        logging.info(f'\x1b[31;20m[------------->] target hit! please check smb server.\x1b[0m')
                     else:
                         logging.error(f'[_shoot] {e}')
 
