@@ -26,7 +26,7 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
         data = self.request.recv(1024)
-        logging.warning(f'[--->] connection from {self.client_address[0]}:{self.client_address[1]}', )
+        logging.warning(f'[--->] connection from\x1b[32;1m {self.client_address[0]}:{self.client_address[1]}\x1b[0m', )
         # print(data)
         cur_thread = threading.current_thread()
         # response = bytes("{}: {}".format(cur_thread.name, data), 'ascii')
@@ -55,7 +55,9 @@ if __name__ == '__main__':
     target.add_argument_group(parser)
 
     parser.add_argument('-rpcs', nargs='+', choices=available_rpcs.keys(), default=('efs2',), help='rpcs to use')
+    parser.add_argument('-auth-proto', nargs='+', choices=('smb', 'http'), default=('smb',), help='回连方式')
     parser.add_argument('-listener', action='store', help='listener')
+    parser.add_argument('-server-port', action='store', help='smb server port', default=445, type=int)
 
     options = parser.parse_args()
     logger.init(options.ts)
@@ -63,7 +65,6 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         parser.print_help()
         sys.exit(1)
-    server = ThreadedTCPServer(("0.0.0.0", 445), ThreadedTCPRequestHandler)
     target = Target()
     if options.debug is True:
         logging.getLogger().setLevel(logging.DEBUG)
@@ -89,7 +90,7 @@ if __name__ == '__main__':
             file_targets.append(tmp_target)
         targets = file_targets
     time_start = time.time()
-    with server:
+    with ThreadedTCPServer(("0.0.0.0", options.server_port), ThreadedTCPRequestHandler) as server:
         ip, port = server.server_address
 
         # Start a thread with the server -- that thread will then start one
@@ -98,14 +99,15 @@ if __name__ == '__main__':
         # Exit the server thread when the main thread terminates
         server_thread.daemon = True
         server_thread.start()
-        print("Server loop running in thread:", server_thread.name)
+        logging.info("Server loop running in thread: {server_thread.name}")
+        logging.info(f"listening at: {options.server_port}")
         cannons = []
 
         logging.info(f'{len(options.rpcs)} cannons loaded. fire!')
         for rpc in options.rpcs:
             for my_target in targets:
                 cannon = Cannon(**(available_rpcs.get(rpc))._asdict(), shooter=options.listener,
-                                target=my_target, delay=0.5, timeout=target.timeout)
+                                target=my_target, delay=0.5, timeout=target.timeout, auth_proto=options.auth_proto)
                 cannons.append(cannon)
 
         if options.thread:
