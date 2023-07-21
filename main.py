@@ -26,7 +26,7 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
         data = self.request.recv(1024)
-        print(f'[+] connection from {self.client_address[0]}:{self.client_address[1]}', )
+        logging.warning(f'[--->] connection from {self.client_address[0]}:{self.client_address[1]}', )
         # print(data)
         cur_thread = threading.current_thread()
         # response = bytes("{}: {}".format(cur_thread.name, data), 'ascii')

