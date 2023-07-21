@@ -69,8 +69,8 @@ class Cannon:
                     args = bullet_generator._vul_args
                     vals = [bullet[arg] for arg in args]
                     print('-' * 50)
-                    logging.info(f'shooting [{self._target.target_ip}]{bullet_generator._class.__name__}(' + ', '.join(
-                        [f'{k}={v[:-1]}' for k, v in zip(args, vals)]) + ')')
+                    logging.info(f'shooting [\x1b[36;20m{self._target.target_ip}\x1b[0m]\x1b[34;20m{bullet_generator._class.__name__}(' + ', '.join(
+                        [f'{k}={v[:-1]}' for k, v in zip(args, vals)]) + ')\x1b[0m')
                     self._dce.request(bullet)
                 except Exception as e:
                     if "ERROR_BAD_NETPATH" in str(e):
