@@ -63,7 +63,7 @@ class Cannon:
         if not self._dce:
             return
         for bullet_generator in self._bullet_generators:
-            for bullet in bullet_generator.generate(self._shooter):
+            for bullet in bullet_generator.generate(self._shooter, self._opts.get('auth_proto')):
                 try:
                     time.sleep(self._opts.get('delay'))
                     args = bullet_generator._vul_args
@@ -73,9 +73,9 @@ class Cannon:
                     self._dce.request(bullet)
                 except Exception as e:
                     if "ERROR_BAD_NETPATH" in str(e):
-                        logging.info(f'\x1b[31;20m[--->] target hit! please check smb server.\x1b[0m')
+                        logging.info(f'\x1b[31;20m[--->] target hit! please check server connections.\x1b[0m')
                     elif "STATUS_CONNECTION_DISCONNECTED" in str(e):
-                        logging.info(f'\x1b[31;20m[--->] target hit! please check smb server.\x1b[0m')
+                        logging.info(f'\x1b[31;20m[--->] target hit! please check server connections.\x1b[0m')
                     else:
                         logging.error(f'[_shoot] {e}')
 
