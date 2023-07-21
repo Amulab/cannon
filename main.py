@@ -49,6 +49,7 @@ if __name__ == '__main__':
     parser.add_argument('-ts', action='store_true', help='adds timestamp to every logging output')
     parser.add_argument('-debug', action='store_true', help='Turn DEBUG output ON')
     parser.add_argument('-all-dc', action='store_true', help='Scan all dcs')
+    parser.add_argument('-tf', type=argparse.FileType('r'))
     # 异步运行的话结果展示可能很乱，如果你只关心能不能打成功，不关心是哪个rpc打的，可以选这个
     parser.add_argument('-thread', action='store_true', help='run async scan')
     target.add_argument_group(parser)
@@ -80,7 +81,13 @@ if __name__ == '__main__':
             tmp_target.target_ip = dc
             dc_targets.append(tmp_target)
         targets = dc_targets
-
+    if options.tf:
+        file_targets = []
+        for file_target in options.tf:
+            tmp_target = deepcopy(t)
+            tmp_target.target_ip = file_target.strip()
+            file_targets.append(tmp_target)
+        targets = file_targets
     time_start = time.time()
     with server:
         ip, port = server.server_address
