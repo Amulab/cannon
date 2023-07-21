@@ -31,7 +31,8 @@ class EncryptionCertificateList(NDRSTRUCT):
 
 class EfsRpcOpenFileRaw(NDRCALL):
     """
-    Structure to make the RPC call to EfsRpcOpenFileRaw() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to make the RPC call to EfsRpcOpenFileRaw() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     opnum = 0
     structure = (
@@ -42,14 +43,16 @@ class EfsRpcOpenFileRaw(NDRCALL):
 
 class EfsRpcOpenFileRawResponse(NDRCALL):
     """
-    Structure to parse the response of the RPC call to EfsRpcOpenFileRaw() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to parse the response of the RPC call to EfsRpcOpenFileRaw() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     structure = ()
 
 
 class EfsRpcEncryptFileSrv(NDRCALL):
     """
-    Structure to make the RPC call to EfsRpcEncryptFileSrv() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to make the RPC call to EfsRpcEncryptFileSrv() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     opnum = 4
     structure = (
@@ -59,14 +62,16 @@ class EfsRpcEncryptFileSrv(NDRCALL):
 
 class EfsRpcEncryptFileSrvResponse(NDRCALL):
     """
-    Structure to parse the response of the RPC call to EfsRpcEncryptFileSrv() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to parse the response of the RPC call to EfsRpcEncryptFileSrv() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     structure = ()
 
 
 class EfsRpcDecryptFileSrv(NDRCALL):
     """
-    Structure to make the RPC call to EfsRpcDecryptFileSrv() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to make the RPC call to EfsRpcDecryptFileSrv() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     opnum = 5
     structure = (
@@ -77,14 +82,16 @@ class EfsRpcDecryptFileSrv(NDRCALL):
 
 class EfsRpcDecryptFileSrvResponse(NDRCALL):
     """
-    Structure to parse the response of the RPC call to EfsRpcDecryptFileSrv() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to parse the response of the RPC call to EfsRpcDecryptFileSrv() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     structure = ()
 
 
 class EfsRpcQueryUsersOnFile(NDRCALL):
     """
-    Structure to make the RPC call to EfsRpcQueryUsersOnFile() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to make the RPC call to EfsRpcQueryUsersOnFile() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     opnum = 6
     structure = (
@@ -94,14 +101,16 @@ class EfsRpcQueryUsersOnFile(NDRCALL):
 
 class EfsRpcQueryUsersOnFileResponse(NDRCALL):
     """
-    Structure to parse the response of the RPC call to EfsRpcQueryUsersOnFile() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to parse the response of the RPC call to EfsRpcQueryUsersOnFile() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     structure = ()
 
 
 class EfsRpcQueryRecoveryAgents(NDRCALL):
     """
-    Structure to make the RPC call to EfsRpcQueryRecoveryAgents() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to make the RPC call to EfsRpcQueryRecoveryAgents() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     opnum = 7
     structure = (
@@ -111,14 +120,16 @@ class EfsRpcQueryRecoveryAgents(NDRCALL):
 
 class EfsRpcQueryRecoveryAgentsResponse(NDRCALL):
     """
-    Structure to parse the response of the RPC call to EfsRpcQueryRecoveryAgents() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to parse the response of the RPC call to EfsRpcQueryRecoveryAgents() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     structure = ()
 
 
 class EfsRpcRemoveUsersFromFile(NDRCALL):
     """
-    Structure to make the RPC call to EfsRpcRemoveUsersFromFile() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/28609dad-5fa5-4af9-9382-18d40e3e9dec)
+    Structure to make the RPC call to EfsRpcRemoveUsersFromFile() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/28609dad-5fa5-4af9-9382-18d40e3e9dec)
     """
     opnum = 8
     structure = (
@@ -129,14 +140,16 @@ class EfsRpcRemoveUsersFromFile(NDRCALL):
 
 class EfsRpcRemoveUsersFromFileResponse(NDRCALL):
     """
-    Structure to parse the response of the RPC call to EfsRpcRemoveUsersFromFile() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to parse the response of the RPC call to EfsRpcRemoveUsersFromFile() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     structure = ()
 
 
 class EfsRpcAddUsersToFile(NDRCALL):
     """
-    Structure to make the RPC call to EfsRpcAddUsersToFile() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/afd56d24-3732-4477-b5cf-44cc33848d85)
+    Structure to make the RPC call to EfsRpcAddUsersToFile() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/afd56d24-3732-4477-b5cf-44cc33848d85)
     """
     opnum = 9
     structure = (
@@ -147,14 +160,16 @@ class EfsRpcAddUsersToFile(NDRCALL):
 
 class EfsRpcAddUsersToFileResponse(NDRCALL):
     """
-    Structure to parse the response of the RPC call to EfsRpcDecryptFileSrv() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to parse the response of the RPC call to EfsRpcDecryptFileSrv() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     structure = ()
 
 
 class EfsRpcFileKeyInfo(NDRCALL):
     """
-    Structure to make the RPC call to EfsRpcFileKeyInfo() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to make the RPC call to EfsRpcFileKeyInfo() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     opnum = 12
     structure = (
@@ -165,14 +180,16 @@ class EfsRpcFileKeyInfo(NDRCALL):
 
 class EfsRpcFileKeyInfoResponse(NDRCALL):
     """
-    Structure to parse the response of the RPC call to EfsRpcFileKeyInfo() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to parse the response of the RPC call to EfsRpcFileKeyInfo() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     structure = ()
 
 
 class EfsRpcDuplicateEncryptionInfoFile(NDRCALL):
     """
-    Structure to make the RPC call to EfsRpcDuplicateEncryptionInfoFile() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to make the RPC call to EfsRpcDuplicateEncryptionInfoFile() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     opnum = 13
     structure = (
@@ -187,7 +204,8 @@ class EfsRpcDuplicateEncryptionInfoFile(NDRCALL):
 
 class EfsRpcDuplicateEncryptionInfoFileResponse(NDRCALL):
     """
-    Structure to parse the response of the RPC call to EfsRpcDuplicateEncryptionInfoFile() in [MS-EFSR Protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
+    Structure to parse the response of the RPC call to EfsRpcDuplicateEncryptionInfoFile() in [MS-EFSR Protocol](
+    https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/08796ba8-01c8-4872-9221-1000ec2eff31)
     """
     structure = ()
 
@@ -195,8 +213,8 @@ class EfsRpcDuplicateEncryptionInfoFileResponse(NDRCALL):
 class EfsRpcAddUsersToFileEx(NDRCALL):
     opnum = 15
     structure = (
-        ('dwFlags', DWORD),  # Type: DWORD
-        # Accroding to this page: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/d36df703-edc9-4482-87b7-d05c7783d65e
+        ('dwFlags', DWORD),  # Type: DWORD Accroding to this page:
+        # https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-efsr/d36df703-edc9-4482-87b7-d05c7783d65e
         # Reserved must be set to NULL
         ('Reserved', NDRPOINTERNULL),  # Type: NDRPOINTERNULL *
         ('FileName', WSTR),  # Type: wchar_t *
@@ -217,9 +235,9 @@ class DCERPCSessionError(DCERPCException):
         if key in system_errors.ERROR_MESSAGES:
             error_msg_short = system_errors.ERROR_MESSAGES[key][0]
             error_msg_verbose = system_errors.ERROR_MESSAGES[key][1]
-            return 'DFSNM SessionError: code: 0x%x - %s - %s' % (self.error_code, error_msg_short, error_msg_verbose)
+            return 'EFSR SessionError: code: 0x%x - %s - %s' % (self.error_code, error_msg_short, error_msg_verbose)
         else:
-            return 'DFSNM SessionError: unknown error code: 0x%x' % self.error_code
+            return 'EFSR SessionError: unknown error code: 0x%x' % self.error_code
 
 
 bullet_generators = [

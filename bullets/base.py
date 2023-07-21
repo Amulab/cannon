@@ -35,7 +35,7 @@ class BulletGenerator:
             bullet[k] = v
 
         for tp in types:
-            if (self._class is ElfrOpenBELW):
+            if self._class is ElfrOpenBELW:
                 paths = [f'\\??\\UNC\\{listener}\\XTeam\\hh']
             else:
                 paths = generate_paths(listener).get(tp)
