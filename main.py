@@ -81,7 +81,7 @@ if __name__ == '__main__':
 
         logging.info(f'{len(options.rpcs)} cannons loaded. fire!')
         for rpc in options.rpcs:
-            cannon = Cannon(**(available_rpcs.get(rpc))._asdict(), shooter=listener, target=t, delay=0.5, timeout=5)
+            cannon = Cannon(**(available_rpcs.get(rpc))._asdict(), shooter=listener, target=t, delay=0.5, timeout=target.timeout)
             cannon.shoot()
             cannons.append(cannon)
 
