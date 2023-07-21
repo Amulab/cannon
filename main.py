@@ -49,6 +49,8 @@ if __name__ == '__main__':
     parser.add_argument('-ts', action='store_true', help='adds timestamp to every logging output')
     parser.add_argument('-debug', action='store_true', help='Turn DEBUG output ON')
     parser.add_argument('-all-dc', action='store_true', help='Scan all dcs')
+    # 异步运行的话结果展示可能很乱，如果你只关心能不能打成功，不关心是哪个rpc打的，可以选这个
+    parser.add_argument('-thread', action='store_true', help='run async scan')
     target.add_argument_group(parser)
 
     parser.add_argument('-rpcs', nargs='+', choices=available_rpcs.keys(), default=('efs2',), help='rpcs to use')
@@ -97,13 +99,15 @@ if __name__ == '__main__':
             for my_target in targets:
                 cannon = Cannon(**(available_rpcs.get(rpc))._asdict(), shooter=options.listener,
                                 target=my_target, delay=0.5, timeout=target.timeout)
-                cannon.shoot()
                 cannons.append(cannon)
 
-
-        # with ThreadPoolExecutor(max_workers=10) as pool:
-        #     fs = [pool.submit(cannon.shoot) for cannon in cannons]
-        #     wait(fs)
+        if options.thread:
+            with ThreadPoolExecutor(max_workers=10) as pool:
+                fs = [pool.submit(cannon.shoot) for cannon in cannons]
+                wait(fs)
+        else:
+            for c in cannons:
+                c.shoot()
         time_end = time.time()
         print('-' * 50)
         logging.info(f' all jobs done,costs {int(time_end - time_start)}s exit after 5 seconds..')
