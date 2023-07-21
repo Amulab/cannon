@@ -1,5 +1,6 @@
 import base64
 import logging
+from concurrent.futures import ThreadPoolExecutor, wait
 
 from certipy.lib.target import Target
 from impacket import ntlm
@@ -62,3 +63,13 @@ def ntlm_info(target_ip, method='rpc'):
         pass
 
     return target_info
+
+
+def fire_cannons(cannons, multi_thread):
+    if multi_thread:
+        with ThreadPoolExecutor(max_workers=10) as pool:
+            fs = [pool.submit(cannon.shoot) for cannon in cannons]
+            wait(fs)
+    else:
+        for c in cannons:
+            c.shoot()
