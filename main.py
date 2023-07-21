@@ -90,7 +90,7 @@ if __name__ == '__main__':
         #     fs = [pool.submit(cannon.shoot) for cannon in cannons]
         #     wait(fs)
         time_end = time.time()
-
-        logging.info(f'\n\n all jobs done,costs {int(time_end - time_start)}s exit after 5 seconds..')
+        print('-' * 50)
+        logging.info(f' all jobs done,costs {int(time_end - time_start)}s exit after 5 seconds..')
         time.sleep(5)
         server.shutdown()
