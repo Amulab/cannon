@@ -48,7 +48,7 @@ if __name__ == '__main__':
     parser.add_argument('-debug', action='store_true', help='Turn DEBUG output ON')
     target.add_argument_group(parser)
 
-    parser.add_argument('-rpcs', nargs='+', choices=available_rpcs.keys(), default=['efs2'], help='rpcs to use', type=list)
+    parser.add_argument('-rpcs', nargs='+', choices=available_rpcs.keys(), default=('efs2',), help='rpcs to use')
     parser.add_argument('-listener', action='store', help='listener')
 
     options = parser.parse_args()
